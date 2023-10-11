@@ -14,9 +14,20 @@ namespace _11102023
             var sugarService = new SugarService();
             var drinkHandler = new DrinkHandler(coffeeService, milkService, sugarService);
 
-            coffeeService.PrepareCoffee();
-            sugarService.AddSugar();
-            milkService.AddMilk();
+            drinkHandler.PrepareDrink();
+
+            Console.WriteLine(drinkHandler.Drink);
+
+
+
+            var butterService = new ButterService();
+            var cheeseService = new CheeseService();
+            var tomatoService = new TomatoService();
+            var sandwichHandler = new SandwichHandler(butterService, cheeseService, tomatoService);
+
+            sandwichHandler.PrepareSandwich();
+
+            Console.WriteLine(sandwichHandler.Sandwich);
         }
     }
 }

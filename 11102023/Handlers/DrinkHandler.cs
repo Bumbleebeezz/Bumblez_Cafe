@@ -19,10 +19,19 @@ public class DrinkHandler
         _milkService = milkService;
         _sugarService = sugarService;
 
+        Drink = new Drink();
+
         // Listen for event
         _coffeeService.CoffeeDone += CoffeeServiceOnCoffeeDone;
         _milkService.MilkAdded += MilkServiceOnMilkAdded;
         _sugarService.SugarAdded += SugarServiceOnCoffeeDone;
+    }
+
+    public void PrepareDrink()
+    {
+        _coffeeService.PrepareCoffee();
+        _sugarService.AddSugar();
+        _milkService.AddMilk();
     }
 
     private void CoffeeServiceOnCoffeeDone(Ingredient coffee)
